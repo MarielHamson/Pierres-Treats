@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using PierresTreats.Models;
-using System.Threading.Tasks; 
+using System.Threading.Tasks;
 using PierresTreats.ViewModels;
 
 namespace PierresTreats.Controllers
@@ -30,13 +30,13 @@ namespace PierresTreats.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Register(RegisterViewModel model) 
+    public async Task<ActionResult> Register(RegisterViewModel model)
     {
       var user = new BakeryUser { UserName = model.Email };
-      IdentityResult result = await _userManager.CreateAsync(user, model.Password); 
+      IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction("Login", "Account");
       }
       else
       {
@@ -53,7 +53,7 @@ namespace PierresTreats.Controllers
       Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
       if (result.Succeeded)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction("Index", "Home");
       }
       else
       {
@@ -64,7 +64,7 @@ namespace PierresTreats.Controllers
     public async Task<ActionResult> LogOff()
     {
       await _signInManager.SignOutAsync();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
   }
 }
