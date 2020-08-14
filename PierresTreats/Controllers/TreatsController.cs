@@ -22,12 +22,15 @@ namespace PierresTreats.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
+    public ActionResult Index(string description = "")
     {
-      List<Treat> model = _db.Treats.ToList();
-      return View(model);
+      var model = _db.Treats;
+      if (!string.IsNullOrEmpty(description))
+      {
+        return View(model.AsQueryable().Where(treat => treat.Description.Contains(description)).ToList());
+      }
+      return View(model.ToList());
     }
-
 
     [Authorize]
     public ActionResult Create()
