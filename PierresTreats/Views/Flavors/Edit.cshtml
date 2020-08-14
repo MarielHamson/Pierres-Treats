@@ -12,13 +12,12 @@
 {
     @Html.HiddenFor(model => model.FlavorId)
 
-    @Html.LabelFor(model => model.Name)
+    <p>@Html.LabelFor(model => model.Name)</p>
     @Html.EditorFor(model => model.Name)
 
-    @Html.Label("Select treat")
+    <p>@Html.Label("Select treat")</p>
     @Html.DropDownList("TreatId")
 
-    <input type="submit" value="Save" />
+    <input type="submit" value="Save" class= "btn btn-primary"/>
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>

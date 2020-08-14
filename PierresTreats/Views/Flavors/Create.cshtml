@@ -8,12 +8,11 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Name)
+    <p>@Html.LabelFor(model => model.Name) </p>
     @Html.TextBoxFor(model => model.Name)
 
-    @Html.Label("Select treat")
+ <p>@Html.Label("Select treat") </p>
     @Html.DropDownList("TreatId")
 
-    <input type="submit" value="Add new flavor" class="btn btn-default" />
+    <input type="submit" value="Add new flavor" class="btn btn-primary" />
 }
-<p>@Html.ActionLink("Show all flavors", "Index")</p>

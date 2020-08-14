@@ -17,8 +17,6 @@
   <a href="#license">License</a>
 </p>
 
-<!-- ![screenshot](HairSalon/wwwroot/hipstyle/img/eauclaires.gif) -->
-
 ## Key Features
 
 - Tracks Treats and Flavors
@@ -55,23 +53,17 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [.NET
 - Click Start Import.
 - Reopen the Navigator > Schemas tab. Right click and select Refresh All. Your new database will appear.
 
-Run the following schema query:
-
-```bash
-//
-```
-
 From your command line:
 
 ```bash
 
 # Go into the repository
-$ cd Pierres-Tracker.solution
+$ cd PierresTreats.solution
 
 # Open repository in VS Code or other
 $ code .
 
-# Install dependencies in Root Project Directory (HairSalon)
+# Install dependencies in Root Project Directory (PierresTreats)
 $ dotnet restore
 
 # Run the app

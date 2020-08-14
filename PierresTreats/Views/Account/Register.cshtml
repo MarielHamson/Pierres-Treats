@@ -9,15 +9,17 @@
 <hr />
 @using (Html.BeginForm()) 
 {
-  @Html.LabelFor(u => u.Email)
+  <p>@Html.LabelFor(u => u.Email)</p>
   @Html.TextBoxFor(u => u.Email)
+  <hr />
 
-  @Html.LabelFor(u=> u.Password)
+  <p>@Html.LabelFor(u=> u.Password)</p>
   @Html.PasswordFor(u=> u.Password)
+  <hr />
 
-  @Html.LabelFor(u=> u.ConfirmPassword)
+  <p>@Html.LabelFor(u=> u.ConfirmPassword)</p>
   @Html.PasswordFor(u=> u.ConfirmPassword)
 
-  <input type="submit" value="Register" />
+  <input type="submit" value="Register" class="btn btn-primary"/>
 
 }
