@@ -1,4 +1,4 @@
-@{
+@* @{
   Layout = "_Layout";
 }
 
@@ -9,17 +9,9 @@
 <hr />
 @if (User.Identity.IsAuthenticated)
 {
-  <p>Hello @User.Identity.Name!</p>
-  @using (Html.BeginForm("LogOff", "Account"))
-  {
-    <input type="submit" class="btn btn-default" value="Log out" />
-  }
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+  <p>Hey there, @User.Identity.Name! <br> Please use the menu above to navigate the tracker</p>
 }
 else
 {
-  <p>@Html.ActionLink("Register", "Register")</p>
-  <p>@Html.ActionLink("Log in", "Login")</p>
-  <p>@Html.ActionLink("Home", "Index", "Home")</p>
-}
+<p> Please login or create an account to continue</p>
+} *@
