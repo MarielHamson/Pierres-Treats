@@ -24,40 +24,48 @@
       <li class="nav-item">
       @Html.ActionLink("See all treats", "Index", "Treats", null,  new { @class = "nav-link" })
       </li>
+      @if (User.Identity.IsAuthenticated)
+      {
       <li class="nav-item">
       @Html.ActionLink("Add new flavor", "Create", "Flavors", null, new { @class = "nav-link" })
       </li>
       <li class="nav-item">
       @Html.ActionLink("Add new treat", "Create", "Treats", null, new { @class = "nav-link" })
       </li>
+      }
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account Info</a>
         <div class="dropdown-menu">
+          @if (!User.Identity.IsAuthenticated)
+          {
           @Html.ActionLink("Log in", "Login", "Account", null, new { @class = "dropdown-item" })
+          
           @Html.ActionLink("Create an account", "Register", "Account", null, new { @class = "dropdown-item" })
           <div class="dropdown-divider"></div>
+          }
+          else 
+          {
           @using (Html.BeginForm("LogOff", "Account"))
           {
             <input type="submit" class="btn btn-default dropdown-item" value="Log out" />
           }
+          }
         </div>
       </li>
-    </ul>
-    @* <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search Treats</button>
-    </form> *@
-
-
-@using (Html.BeginForm("Index", "Treats", FormMethod.Get, new { @class= "form-inline my-2 my-lg-0" }))
+      <div id="welcome">
+      <li class="nav-item">
+      @if (User.Identity.IsAuthenticated)
       {
-        <input class="form-control mr-sm-2" type="text" placeholder="Treat Description">
-        <button class="btn my-2 my-sm-0" type="submit">Search Treats</button>
-      }      
-
-
-
-
+      <li class="nav-link">Hello, @User.Identity.Name!</li>
+      }
+      </li>
+      </div>
+    </ul>
+    @using (Html.BeginForm("Index", "Treats", FormMethod.Get, new { @class= "form-inline my-2 my-lg-0" }))
+          {
+            <input class="form-control mr-sm-2" type="text" placeholder="Treat Description">
+            <button class="btn my-2 my-sm-0" type="submit">Search Treats</button>
+          }      
   </div>
 </nav>
 <br>
