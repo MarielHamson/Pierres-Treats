@@ -28,7 +28,7 @@ namespace PierresTreats
       services.AddEntityFrameworkMySql()
         .AddDbContext<PierresTreatsContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
-      services.AddIdentity<ApplicationUser, IdentityRole>()
+      services.AddIdentity<BakeryUser, IdentityRole>()
           .AddEntityFrameworkStores<PierresTreatsContext>()
           .AddDefaultTokenProviders();
       services.Configure<IdentityOptions>(options =>
